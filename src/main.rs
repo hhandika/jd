@@ -1,6 +1,6 @@
 use clap::{crate_authors, crate_name, crate_version, App, Arg};
 
-mod link_generator;
+mod utils;
 
 fn main() {
     let args = App::new(crate_name!())
@@ -34,14 +34,14 @@ fn main() {
         .get_matches();
 
     if args.is_present("set") {
-        link_generator::set_proxy(
+        utils::set_proxy(
             args.value_of("set")
                 .expect("Faile to parse proxy settings."),
         );
     } else {
         let input = args.value_of("input").unwrap();
         let browser = args.value_of("browser").unwrap();
-        let url = link_generator::generate_proxy_link(input);
+        let url = utils::generate_proxy_link(input);
 
         match browser {
             "default" => open::that(url).expect("Failed to open the link!"),
