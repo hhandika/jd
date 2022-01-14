@@ -18,7 +18,7 @@ For example to set to University of Melbourne EZProxy:
 jd --set "http://ezp.lib.unimelb.edu.au/login?url="
 ```
 
-You can find exproxy url in in Paperpile database [here](https://paperpile.com/guides/proxy-list/)
+You only need to do this once. You can find EZProxy url in in Paperpile database [here](https://paperpile.com/guides/proxy-list/)
 
 ## Usage
 
