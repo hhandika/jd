@@ -40,12 +40,12 @@ ezp --reset
 ezp -i [journal-link/doi]
 ```
 
-It will open your browser to download the paper using your library access.
+It will open your default browser to download the paper using your library access.
 
 For example to download Ou et al. 2022 paper using a doi address:
 
 ```Bash
-ezp -i https://doi.org/10.1093/biosci/biab133
+ezp -i https://doi.org/10.1093/biosci/biab133git 
 ```
 
 Using the web address:
@@ -59,3 +59,5 @@ Using non-default browser:
 ```Bash
 ezp -i [input-url] -b firefox
 ```
+
+> :warning: For Windows users, the non-default browser only works if you install the app in your native operating system. If you run the app on Windows WSL, it will only work using the default browser.
