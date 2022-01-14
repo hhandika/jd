@@ -6,7 +6,7 @@ A command line application to proxify journal url/doi.
 
 ## Installation
 
-To be able to run it in any directory, copy the executable to your path environment. If have the Rust Package Manager installed in your system, you can install using cargo:
+To be able to run it in any directory, download the latest version in [the release page](https://github.com/hhandika/ezp/releases), extract, and copy the executable to your path environment. If have the Rust Package Manager installed in your system, you can install using cargo:
 
 ```Bash
 cargo install ezp
