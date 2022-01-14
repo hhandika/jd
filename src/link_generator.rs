@@ -20,3 +20,18 @@ pub fn generate_proxy_link(url: &str) -> Result<String> {
         Ok(format!("{}{}", LSU_PROXIE, url))
     }
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_generate_proxy_link() {
+        let url = "http://www.google.com";
+        let proxy_url = generate_proxy_link(url).unwrap();
+        assert_eq!(
+            proxy_url,
+            "http://libezp.lib.lsu.edu/login?url=http://www.google.com"
+        );
+    }
+}
