@@ -23,6 +23,11 @@ pub fn set_proxy(url: &str) {
     std::fs::write(proxy_path, url).expect("Failed to write ezproxy.txt");
 }
 
+pub fn reset_proxy() {
+    let proxy_path = get_costum_proxy_path();
+    std::fs::remove_file(proxy_path).expect("Failed to remove ezproxy.txt");
+}
+
 fn get_costum_proxy_path() -> PathBuf {
     std::env::current_exe()
         .expect("Failed to get current exe")

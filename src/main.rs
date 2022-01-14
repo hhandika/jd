@@ -13,7 +13,7 @@ fn main() {
                 .short('i')
                 .help("Fasta file to analyze.")
                 .takes_value(true)
-                .required_unless_present("set"),
+                .required_unless_present_any(&["set", "reset"]),
         )
         .arg(
             Arg::new("browser")
@@ -23,13 +23,20 @@ fn main() {
                 .takes_value(true)
                 .possible_values(&["default", "firefox", "Google Chrome", "safari"])
                 .default_value("default")
-                .required_unless_present("set"),
+                .required_unless_present_any(&["set", "reset"]),
         )
         .arg(
             Arg::new("set")
                 .long("set")
                 .takes_value(true)
-                .help("Costum proxy."),
+                .help("Costum proxy.")
+                .conflicts_with_all(&["browser", "input"]),
+        )
+        .arg(
+            Arg::new("reset")
+                .long("reset")
+                .help("Reset to default settings.")
+                .conflicts_with_all(&["browser", "input"]),
         )
         .get_matches();
 
@@ -38,6 +45,8 @@ fn main() {
             args.value_of("set")
                 .expect("Faile to parse proxy settings."),
         );
+    } else if args.is_present("reset") {
+        utils::reset_proxy();
     } else {
         let input = args.value_of("input").unwrap();
         let browser = args.value_of("browser").unwrap();
