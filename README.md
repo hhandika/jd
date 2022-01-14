@@ -40,6 +40,20 @@ ezp --reset
 ezp -i [journal-link/doi]
 ```
 
+It will open your browser to download the paper using your library access.
+
+For example to download Ou et al. 2022 paper using a doi address:
+
+```Bash
+ezp -i https://doi.org/10.1093/biosci/biab133
+```
+
+Using the web address:
+
+```Bash
+ezp -i https://academic.oup.com/bioscience/advance-article/doi/10.1093/biosci/biab133/6482999
+```
+
 Using non-default browser:
 
 ```Bash
