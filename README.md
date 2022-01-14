@@ -20,15 +20,13 @@ By default the program use LSU EZProxy. To use a different proxy:
 ezp --set [EZProxy-url]
 ```
 
-For example to set to University of Melbourne EZProxy:
+You can find EZProxy url in in Paperpile database [here](https://paperpile.com/guides/proxy-list/). For example to set to University of Melbourne EZProxy:
 
 ```Bash
 ezp --set "http://ezp.lib.unimelb.edu.au/login?url="
 ```
 
 You only need to do this once. If you would like to change to a different proxy, you can run `--set` again. It will change the proxy setting to the new one.
-
-You can find EZProxy url in in Paperpile database [here](https://paperpile.com/guides/proxy-list/).
 
 To reset to the default proxy:
 
