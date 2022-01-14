@@ -20,7 +20,7 @@ fn main() {
                 .short('b')
                 .help("Browser choices.")
                 .takes_value(true)
-                .possible_values(&["default", "firefox", "chrome", "safari"])
+                .possible_values(&["default", "firefox", "Google Chrome", "safari"])
                 .default_value("default")
                 .required(true),
         )
@@ -29,7 +29,7 @@ fn main() {
     let input = args.value_of("input").unwrap();
     let browser = args.value_of("browser").unwrap();
 
-    let url = link_generator::generate_proxy_link(input);
+    let url = link_generator::generate_proxy_link(input).expect("Failed to generate proxy link");
 
     match browser {
         "default" => open::that(url).expect("Failed to open the link!"),
