@@ -16,21 +16,21 @@ jobs:
         include:
           - name: linux
             os: ubuntu-latest
-            executable: jd
-            artifact_name: target/release/jd
-            asset_name: jd-Linux-x86_64.zip
+            executable: ezp
+            artifact_name: target/release/ezp
+            asset_name: ezp-Linux-x86_64.zip
 
           - name: macos
             os: macos-latest
-            executable: jd
-            artifact_name: target/release/jd
-            asset_name: jd-MacOS-x86_64.zip
+            executable: ezp
+            artifact_name: target/release/ezp
+            asset_name: ezp-MacOS-x86_64.zip
 
           - name: windows
             os: windows-latest
-            executable: jd.exe
-            artifact_name: target/release/jd.exe
-            asset_name: jd-Windows-x86_64.zip
+            executable: ezp.exe
+            artifact_name: target/release/ezp.exe
+            asset_name: ezp-Windows-x86_64.zip
 
     steps:
       - uses: actions/checkout@v1
