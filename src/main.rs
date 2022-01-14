@@ -1,4 +1,4 @@
-use clap::{crate_authors, crate_name, crate_version, App, Arg};
+use clap::{crate_authors, crate_description, crate_name, crate_version, App, Arg};
 
 mod utils;
 
@@ -6,7 +6,7 @@ fn main() {
     let args = App::new(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
-        .about("Quickly count gc content from a fasta file.")
+        .about(crate_description!())
         .arg(
             Arg::new("input")
                 .long("input")
@@ -29,7 +29,7 @@ fn main() {
             Arg::new("set")
                 .long("set")
                 .takes_value(true)
-                .help("Costum proxy.")
+                .help("Set user-defined proxy.")
                 .conflicts_with_all(&["browser", "input"]),
         )
         .arg(
