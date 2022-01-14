@@ -6,7 +6,19 @@ A command line application to proxify journal url/doi. Current version only work
 
 ## Installation
 
-To be able to run it in any directory, copy the executable to your path environment. By default the program use LSU Ezproxy. To use a different proxy, create a text file that contain your costum proxy and save it as `ezproxy.txt` (all in lowercases). Put the file in the same directory as your executable.
+To be able to run it in any directory, copy the executable to your path environment. By default the program use LSU EZProxy. To use a different proxy:
+
+```Bash
+jd --set [EZProxy-url]
+```
+
+For example to set to University of Melbourne EZProxy:
+
+```Bash
+jd --set "http://ezp.lib.unimelb.edu.au/login?url="
+```
+
+You can find exproxy url in in Paperpile database [here](https://paperpile.com/guides/proxy-list/)
 
 ## Usage
 

@@ -12,7 +12,7 @@ fn main() {
                 .short('i')
                 .help("Fasta file to analyze.")
                 .takes_value(true)
-                .required(true),
+                .required_unless_present("set"),
         )
         .arg(
             Arg::new("browser")
@@ -22,19 +22,31 @@ fn main() {
                 .takes_value(true)
                 .possible_values(&["default", "firefox", "Google Chrome", "safari"])
                 .default_value("default")
-                .required(true),
+                .required_unless_present("set"),
+        )
+        .arg(
+            Arg::new("set")
+                .long("set")
+                .takes_value(true)
+                .help("Costum proxy."),
         )
         .get_matches();
 
-    let input = args.value_of("input").unwrap();
-    let browser = args.value_of("browser").unwrap();
+    if args.is_present("set") {
+        link_generator::set_proxy(
+            args.value_of("set")
+                .expect("Faile to parse proxy settings."),
+        );
+    } else {
+        let input = args.value_of("input").unwrap();
+        let browser = args.value_of("browser").unwrap();
+        let url = link_generator::generate_proxy_link(input);
 
-    let url = link_generator::generate_proxy_link(input).expect("Failed to generate proxy link");
+        match browser {
+            "default" => open::that(url).expect("Failed to open the link!"),
+            _ => open::with(url, browser).expect("Failed to open the link!"),
+        }
 
-    match browser {
-        "default" => open::that(url).expect("Failed to open the link!"),
-        _ => open::with(url, browser).expect("Failed to open the link!"),
+        println!("DONE!");
     }
-
-    println!("DONE!");
 }
