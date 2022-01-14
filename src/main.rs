@@ -1,10 +1,11 @@
-use clap::{App, Arg};
+use clap::{crate_authors, crate_name, crate_version, App, Arg};
 
 mod link_generator;
 
 fn main() {
-    let args = App::new("GC-Counter")
-        .version("0.1.1")
+    let args = App::new(crate_name!())
+        .version(crate_version!())
+        .author(crate_authors!())
         .about("Quickly count gc content from a fasta file.")
         .arg(
             Arg::new("input")
