@@ -1,9 +1,9 @@
-use clap::{crate_authors, crate_description, crate_name, crate_version, App, Arg};
+use clap::{crate_authors, crate_description, crate_name, crate_version, Arg, Command};
 
 mod utils;
 
 fn main() {
-    let args = App::new(crate_name!())
+    let args = Command::new(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
         .about(crate_description!())
