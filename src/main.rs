@@ -21,9 +21,8 @@ fn main() {
                 .short('b')
                 .help("Browser choices.")
                 .takes_value(true)
-                .possible_values(&["default", "firefox", "Google Chrome", "safari"])
-                .default_value("default")
-                .required_unless_present_any(&["set", "reset"]),
+                .possible_values(&["firefox", "Google Chrome", "safari"])
+                .default_value("default"),
         )
         .arg(
             Arg::new("set")
@@ -49,12 +48,12 @@ fn main() {
         utils::reset_proxy();
     } else {
         let input = args.value_of("input").unwrap();
-        let browser = args.value_of("browser").unwrap();
+        let browser: Option<&str> = args.value_of("browser");
         let url = utils::generate_proxy_link(input);
 
         match browser {
-            "default" => open::that(url).expect("Failed to open the link!"),
-            _ => open::with(url, browser).expect("Failed to open the link!"),
+            Some(browser) => open::with(url, browser).expect("Failed to open the link!"),
+            None => open::that(url).expect("Failed to open the link!"),
         }
 
         println!("DONE!");
