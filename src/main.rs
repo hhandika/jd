@@ -43,7 +43,7 @@ fn main() {
     if args.is_present("set") {
         utils::set_proxy(
             args.value_of("set")
-                .expect("Faile to parse proxy settings."),
+                .expect("Failed to parse proxy settings."),
         );
     } else if args.is_present("reset") {
         utils::reset_proxy();
