@@ -21,8 +21,7 @@ fn main() {
                 .short('b')
                 .help("Browser choices.")
                 .takes_value(true)
-                .possible_values(&["firefox", "Google Chrome", "safari"])
-                .default_value("default"),
+                .possible_values(&["firefox", "Google Chrome", "safari"]),
         )
         .arg(
             Arg::new("set")
